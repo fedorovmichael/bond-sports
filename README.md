@@ -15,7 +15,7 @@ A React application that fetches and displays Star Wars characters using the SWA
 1. Clone the repository:
    ```bash
    git clone https://github.com/fedorovmichael/bond-sports.git
-   cd star-wars-app
+   cd bond-sports
    ```
 2. Install dependencies:
    ```bash
