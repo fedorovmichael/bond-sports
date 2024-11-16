@@ -69,3 +69,8 @@ State is managed using React's built-in hooks:
 - The state is kept at the top-level `App` component and passed down as props to child components.
 
 ---
+
+## 4. Interaction flow diagram
+
+Interaction flow diagram can see in file:
+"interaction_flow_diagram.png" in root of project.
