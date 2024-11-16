@@ -1,46 +1,71 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Star Wars Characters Application
 
-## Available Scripts
+A React application that fetches and displays Star Wars characters using the SWAPI API. Users can search for characters, view details in a modal, and manage a favorites list.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 1. How to Run the Application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
+- Node.js (version 16 or later)
+- npm or yarn
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/fedorovmichael/bond-sports.git
+   cd star-wars-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the application:
+   ```bash
+   npm start
+   ```
+4. Open the application in your browser at [http://localhost:3000](http://localhost:3000).
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. Breakdown of Components
 
-### `npm run build`
+### UI Components
+- **SearchableList**:
+  - Displays a list of characters fetched from the SWAPI API.
+  - Includes a search bar for filtering characters by name.
+  - Each character is displayed as a card with the name, a random image, and a button to add the character to the favorites list.
+  - Clicking on a card opens a modal with detailed information.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **CharacterCard**:
+  - A card component displaying the character's name, image, and a button to add the character to favorites.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **ModalDetails**:
+  - A modal displaying detailed information about the selected character, including height, mass, birth year, the number of films they appear in, and homeworld details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **FavoritesList**:
+  - Displays a list of characters marked as favorites.
+  - Allows users to remove characters from the favorites list.
 
-### `npm run eject`
+### Layout and Styling
+- **Grid** and **Box** components from Material-UI are used to organize the layout.
+- Styling is done using Material-UI's `sx` prop and CSS Modules for component-specific styles.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 3. Services
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### API Service
+The application interacts with the **SWAPI API** to fetch data. The `useStarWarsAPI` hook is responsible for:
+- Fetching characters with pagination.
+- Fetching homeworld details for each character.
+- Returning a `loading` state to show a spinner while data is being fetched.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### State Management
+State is managed using React's built-in hooks:
+- `useState` for local component states.
+- `useEffect` for handling side effects, such as API calls.
+- The state is kept at the top-level `App` component and passed down as props to child components.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
